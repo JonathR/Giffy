@@ -2,11 +2,17 @@ import React from 'react';
 import './App.css';
 import ListOfGifs from './components/ListOfGifs';
 
+import { Link, Route } from 'wouter';
+
 function App() {
   return (
     <div className="App">
       <section className="App-content">
-        <ListOfGifs keyword="panda" />
+        <h1>App</h1>
+        <Link to="/gif/panda">Gifs de pandas</Link>
+        <Link to="/gif/hunterxhunter">Gifs de Hunter X Hunter</Link>
+        <Link to="/gif/ecuador">Gifs de Ecuador</Link>
+        <Route component={ListOfGifs} path="/gif/:keyword" />
       </section>
     </div>
   );
