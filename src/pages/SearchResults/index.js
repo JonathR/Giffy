@@ -1,32 +1,23 @@
-import React from 'react';
-import Spinner from 'components/Spinner';
-import ListOfGifs from 'components/ListOfGifs';
-import SearchForm from 'components/SearchForm';
-
-import { Helmet } from 'react-helmet';
+import React, { useEffect, useState } from 'react';
+import Spinner from '../../components/Spinner';
+import ListOfGifs from '../../components/ListOfGifs/ListOfGifs';
+import getGifs from '../../services/getGifs';
 
 export default function SearchResults({ params }) {
-  return (
-    <>
-      {loading ? (
-        <Spinner />
-      ) : (
-        <>
-          <Helmet>
-            <title>{title}</title>
-            <meta name="description" content={title} />
-            <meta name="rating" content="General" />
-          </Helmet>
-          <header className="o-header">
-            <SearchForm initialKeyword={keyword} initialRating={rating} />
-          </header>
-          <div className="App-wrapper">
-            <h3 className="App-title">{decodeURI(keyword)}</h3>
-            <ListOfGifs gifs={gifs} />
-            <div id="visor" ref={externalRef}></div>
-          </div>
-        </>
-      )}
-    </>
+  const { keyword } = params;
+  const [loading, setLoading] = useState(false);
+  const [gifs, setGifs] = useState([]);
+
+  useEffect(
+    function () {
+      setLoading(true);
+      getGifs({ keyword }).then((gifs) => {
+        setGifs(gifs);
+        setLoading(false);
+      });
+    },
+    [keyword]
   );
+
+  return <>{loading ? <Spinner /> : <ListOfGifs gifs={gifs} />}</>;
 }

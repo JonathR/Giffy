@@ -1,27 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import Gif from './Gif';
-import getGifs from '../services/getGifs';
+import React from 'react';
+import Gif from '../Gif/Gif';
 
-export default function ListOfGifs({ params }) {
-  const { keyword } = params;
-  const [gifs, setGifs] = useState({ loading: false, results: [] });
+import './ListOfGifs.css';
 
-  useEffect(
-    function () {
-      setGifs((actualGifs) => ({ loading: true, results: actualGifs.results }));
-
-      getGifs({ keyword }).then((gifs) => {
-        setGifs({ loading: false, results: gifs });
-      });
-    },
-    [keyword]
-  );
-
-  if (gifs.loading) return <i> Cargando 🔥 </i>;
-
+export default function ListOfGifs({ gifs }) {
   return (
-    <div>
-      {gifs.results.map(({ id, title, url }) => (
+    <div className="ListOfGifs">
+      {gifs.map(({ id, title, url }) => (
         <Gif id={id} key={id} title={title} url={url} />
       ))}
     </div>
