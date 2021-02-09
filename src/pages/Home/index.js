@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'wouter';
 import getGifs from '../../services/getGifs';
 import ListOfGifs from '../../components/ListOfGifs/ListOfGifs';
+import useGifs from '../../hooks/useGifs';
 
 const POPULAR_GIFS = [
   ' Matrix',
@@ -15,19 +16,7 @@ export default function Home() {
   const [keyword, setKeyword] = useState('');
   const [path, pushLocation] = useLocation();
 
-  const [loading, setLoading] = useState(false);
-  const [gifs, setGifs] = useState([]);
-
-  useEffect(
-    function () {
-      setLoading(true);
-      getGifs({ keyword: 'Rick' }).then((gifs) => {
-        setGifs(gifs);
-        setLoading(false);
-      });
-    },
-    [keyword]
-  );
+  const { loading, gifs } = useGifs();
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
