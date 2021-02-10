@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'wouter';
 import getGifs from '../../services/getGifs';
 import ListOfGifs from '../../components/ListOfGifs/ListOfGifs';
-import useGifs from '../../hooks/useGifs';
+import { useGifs } from '../../hooks/useGifs';
 
 const POPULAR_GIFS = [
   ' Matrix',
