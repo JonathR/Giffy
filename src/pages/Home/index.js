@@ -15,7 +15,6 @@ const POPULAR_GIFS = [
 export default function Home() {
   const [keyword, setKeyword] = useState('');
   const [path, pushLocation] = useLocation();
-
   const { loading, gifs } = useGifs();
 
   const handleSubmit = (evt) => {
@@ -32,7 +31,7 @@ export default function Home() {
     <>
       <form onSubmit={handleSubmit}>
         <input
-          placeholder="Search a git here"
+          placeholder="Search a git here..."
           onChange={handleChange}
           type="text"
           value={keyword}

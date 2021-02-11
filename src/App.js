@@ -3,14 +3,14 @@ import './App.css';
 import Home from './pages/Home';
 import SearchResults from './pages/SearchResults';
 import Detail from './pages/Detail';
-import StaticContext from './context/StaticContext';
+import Pepito from './context/StaticContext';
 
 import { GifsContextProvider } from './context/GifsContext';
 import { Link, Route } from 'wouter';
 
 function App() {
   return (
-    <StaticContext.Provider
+    <Pepito.Provider
       value={{
         name: 'jonathan',
         suscribeteAlCanal: true,
@@ -30,7 +30,7 @@ function App() {
           </GifsContextProvider>
         </section>
       </div>
-    </StaticContext.Provider>
+    </Pepito.Provider>
   );
 }
 
