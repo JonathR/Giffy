@@ -13,7 +13,7 @@ const fromApiResponseToGifs = (apiResponse) => {
   return [];
 };
 
-export default function getGifs({ limit = 25, keyword = 'morty' } = {}) {
+export default function getTrendingTerms() {
   const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=${limit}&offset=0&rating=g&lang=en`;
 
   return fetch(apiURL)
