@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'wouter';
-import getGifs from '../../services/getGifs';
 import ListOfGifs from '../../components/ListOfGifs/ListOfGifs';
 import { useGifs } from '../../hooks/useGifs';
 
@@ -30,13 +29,13 @@ export default function Home() {
   return (
     <>
       <form onSubmit={handleSubmit}>
+        <button>Buscar</button>
         <input
           placeholder="Search a git here..."
           onChange={handleChange}
           type="text"
           value={keyword}
         />
-        <button>Buscar</button>
       </form>
       <h3 className="App-title">Última Busqueda </h3>
       <ListOfGifs gifs={gifs} />
