@@ -43,5 +43,5 @@ export function useGifs({ keyword } = { keyword: null }) {
     [keywordToUse, page, setGifs]
   );
 
-  return { loading, loadingNextPage, gifs, setPage };
+  return { loading, loadingNextPage, gifs, page, setPage };
 }
