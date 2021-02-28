@@ -1,18 +1,20 @@
 import React from 'react';
+import { Redirect } from 'wouter';
 import Gif from 'components/Gif/Gif';
-
-import useGlobalGifs from 'hooks/useGlobalGifs';
+import useSingleGif from 'hooks/useSingleGif';
+import Spinner from 'components/Spinner';
 
 export default function Detail({ params }) {
-  const gifs = useGlobalGifs();
+  const { gif, isLoading, isError } = useSingleGif({ id: params.id });
 
-  const gif = gifs.find((singleGif) => singleGif.id === params.id);
+  if (isLoading) return <Spinner />;
+  if (isError) return <Redirect to="/404" />;
+  if (!gif) return null;
 
-  console.log(gif);
   return (
-    <>
+    <Spinner>
       <h3 className="App-title">{gif.title}</h3>
       <Gif {...gif} />;
-    </>
+    </Spinner>
   );
 }
