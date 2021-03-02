@@ -7,7 +7,7 @@ import SearchForm from 'components/SearchForm';
 
 export default function Home() {
   const [path, pushLocation] = useLocation();
-  const { loading, gifs } = useGifs();
+  const { gifs } = useGifs();
 
   const handleSubmit = useCallback(
     ({ keyword }) => {

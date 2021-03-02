@@ -9,7 +9,7 @@ export default function Detail({ params }) {
   const { gif, isLoading, isError } = useSingleGif({ id: params.id });
 
   const title = gif ? gif.title : '';
-  useSeo({ title });
+  useSeo({ description: `Detail of ${title}`, title });
 
   if (isLoading) return <Spinner />;
   if (isError) return <Redirect to="/404" />;
