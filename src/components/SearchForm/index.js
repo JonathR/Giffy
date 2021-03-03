@@ -32,9 +32,9 @@ export default function SearchForm({
     onSubmit({ keyword });
   };
 
-  // const handleChangeRating = (evt) => {
-  //   changeRating({ rating: evt.target.value });
-  // };
+  const handleChangeRating = (evt) => {
+    changeRating({ rating: evt.target.value });
+  };
 
   return (
     <>
@@ -48,12 +48,14 @@ export default function SearchForm({
           value={keyword}
         />
         {/* <select value={rating} onChange={handleChangeRating}>
-          <option disabled>Rating:</option>
+          <option disabled>
+            Rating:
+          </option>
           {RATINGS.map((rating) => (
             <option key={rating}>{rating}</option>
           ))}
-        </select> */}
-        {/* <small>{times}</small> */}
+        </select>
+        <small>{times}</small> */}
       </form>
     </>
   );

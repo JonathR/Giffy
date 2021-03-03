@@ -1,8 +1,8 @@
-import { useReducer } from 'react';
+import { useReducer } from "react";
 
 const ACTIONS = {
-  CHANGE_KEYWORD: 'change_keyword',
-  CHANGE_RATING: 'change_rating',
+  CHANGE_KEYWORD: "change_keyword",
+  CHANGE_RATING: "change_rating",
 };
 
 const ACTIONS_REDUCERS = {
@@ -23,8 +23,8 @@ const reducer = (state, action) => {
 };
 
 export default function useForm({
-  initialKeyword = '',
-  initialRating = 'g',
+  initialKeyword = "",
+  initialRating = "g",
 } = {}) {
   const [{ keyword, rating, times }, dispatch] = useReducer(reducer, {
     keyword: decodeURIComponent(initialKeyword),
