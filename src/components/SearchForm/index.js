@@ -47,15 +47,13 @@ export default function SearchForm({
           type="text"
           value={keyword}
         />
-        {/* <select value={rating} onChange={handleChangeRating}>
-          <option disabled>
-            Rating:
-          </option>
+        <select value={rating} onChange={handleChangeRating}>
+          <option disabled>Rating:</option>
           {RATINGS.map((rating) => (
             <option key={rating}>{rating}</option>
           ))}
         </select>
-        <small>{times}</small> */}
+        <small>{times}</small>
       </form>
     </>
   );
