@@ -2,10 +2,8 @@ import React, { useCallback, useRef, useEffect } from 'react';
 import Spinner from 'components/Spinner';
 import ListOfGifs from 'components/ListOfGifs';
 import SearchForm from 'components/SearchForm';
-
 import { useGifs } from 'hooks/useGifs';
 import useNearScreen from 'hooks/useNearScreen';
-
 import debounce from 'just-debounce-it';
 import { Helmet } from 'react-helmet';
 
